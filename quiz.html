@@ -47,26 +47,26 @@
             let x = document.forms["myForm"]["first"].value;
             let y = document.forms["myForm"]["second"].value;
             let z = document.forms["myForm"]["third"].value;
+            let score = 0;
             // This will return an alert if the fname form is empty
             if (x == "" || y == "" || z == "") {
                 alert("All fields must be filled out");
-                return false;
             }
-            else if (x != "blue") {
-                alert("First Answer Incorrect");
-                return false;
+            if (x == "blue") {
+                score += 1;
             }
-            else if (y != "yellow") {
-                alert("Second Answer Incorrect");
-                return false;
+            if (y == "yellow") {
+                score += 1;
             }
-            else if (z != "red") {
-                alert("Thrid Answer Incorrect");
-                return false;
+            if (z == "red") {
+                score += 1;
+            }
+            // This will return user score
+            if (score == 3) {
+                alert("All correct, Good Job!");
             }
             else {
-                alert("Good Job!")
-                return true;
+                alert("Your score was " + score + " out of 3");
             }
         }
     </script>

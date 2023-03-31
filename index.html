@@ -35,6 +35,10 @@
             text-align: center;
         }
 
+        .notVisible {
+            visibility: hidden;
+        }
+
         body {
             margin: 80px;
             position: relative;
@@ -42,31 +46,10 @@
     </style>
 
     <script>
-        function validateForm() {
-            let x = document.forms["myForm"]["first"].value;
-            let y = document.forms["myForm"]["second"].value;
-            let z = document.forms["myForm"]["third"].value;
-            // This will return an alert if the fname form is empty
-            if (x == "" || y == "" || z == "") {
-                alert("All fields must be filled out");
-                return false;
-            }
-            else if (x != "blue") {
-                alert("First Answer Incorrect");
-                return false;
-            }
-            else if (y != "yellow") {
-                alert("Second Answer Incorrect");
-                return false;
-            }
-            else if (z != "red") {
-                alert("Thrid Answer Incorrect");
-                return false;
-            }
-            else {
-                alert("Good Job!")
-                return true;
-            }
+        function setInvisible() {
+            alert("HEY");
+            var mySpinner = document.getElementById("mySpinner");
+            mySpinner.style.display = hidden;
         }
     </script>
 
@@ -74,11 +57,16 @@
 
 <!-- Scrollspy info from https://getbootstrap.com/docs/4.0/components/scrollspy/ -->
 
-<body data-bs-spy="scroll" data-target=".navbar" data-bs-offset="0">
+<body data-bs-spy="scroll" data-target=".navbar" data-bs-offset="0" onLoad="setInvisible()">
 
     <!-- spinner bootstrap from https://getbootstrap.com/docs/5.0/components/spinners/ -->
-    <div class="spinner-border" role="status" onload="">
+    <!-- <div id="mySpinner" class="spinner-border" role="status" onload="setInvisible()">
         <span class="visually-hidden">Loading...</span>
+    </div> -->
+    <div id="mySpinner" class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+            <span class="sr-only"></span>
+        </div>
     </div>
 
     <!-- The following taken from https://getbootstrap.com/docs/4.0/components/navbar/ -->
@@ -92,7 +80,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#">Getting Started <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#First">Linke</a>
@@ -123,47 +111,209 @@
         </div>
     </nav>
 
-    <h2>What is a Scrollspy?</h2>
+    <h2 id="First">Getting Started</h2>
+    <p>Thanks for checking out my Cubase LE AI Elements 11 Beginner's Guide! Hopefully you find the information I
+        provide helpful in jumpstarting
+        your passion for creating sound. Note that some of this information may be applicable to other versions of
+        Cubase, however I will not be
+        covering other versions in this guide because LE AI Elements 11 is my prefered version. Before we get started,
+        we need to cover some
+        preliminary info before we can start the guide.
+    </p>
+    <h3>Obtaining Cubase</h3>
+    <p>You can pick up a copy of Cubase off of their website, digital or physical, the differences are very minimal but
+        I will mention them</p>
     <ul>
-        <li>A Scrollspy is a feature that interacts with existing bootstrap components</li>
-        <li>It highlights elements that are found in the body</li>
+        <li>Physical editions come in a small cardboard container of some sort, and most likely only contain a download
+            code for the digital
+            version. I personally own a physical edition and I haven't touched the box since retreiving the code from
+            the box, though it is
+            a nice souvenir
+        </li>
+        <li>The Digital edition is obtained through a download code, and you can activate your purchase through the
+            Steinberg Download Assistant</li>
     </ul>
-    <ul>
-        <li>A Scrollspy is a feature that interacts with existing bootstrap components</li>
-        <li>It highlights elements that are found in the body</li>
-    </ul>
-    <ul>
-        <li>A Scrollspy is a feature that interacts with existing bootstrap components</li>
-        <li>It highlights elements that are found in the body</li>
-    </ul>
-    <ul>
-        <li>A Scrollspy is a feature that interacts with existing bootstrap components</li>
-        <li>It highlights elements that are found in the body</li>
-    </ul>
-    <ul>
-        <li>A Scrollspy is a feature that interacts with existing bootstrap components</li>
-        <li>It highlights elements that are found in the body</li>
-    </ul>
-    <ul>
-        <li>A Scrollspy is a feature that interacts with existing bootstrap components</li>
-        <li>It highlights elements that are found in the body</li>
-    </ul>
-    <ul>
-        <li>A Scrollspy is a feature that interacts with existing bootstrap components</li>
-        <li>It highlights elements that are found in the body</li>
-    </ul>
+    <p>Download Cubase, I reccomend downloading any additional files it suggests unless they seem completely unecessary,
+        and run the program</p>
+    <h2 id="Second">The startup screen</h2>
+    <p>When first starting Cubase, you will likely get prompted on what audio interface you are currently using. We will
+        come back to this lLINKater
+        in the tutorial but if you don't know what to do, just pick the default interface for your device.</br>
+        Anyways, this is what information is given to you on the startup screen: most of which is not important for the
+        scope of this tutorial but we will go through anyways.
+    </p>
+    <img src="Capture.PNG" width="800px" alt="capture">
+    <!-- Code borrowed from https://getbootstrap.com/docs/5.0/components/accordion/-->
+    <p>The information on the left side is fetched from the Cubase website and usually is articles or news promoted by
+        Cubase. On the right we have our many options for creating a new project, the following tabs are breakdowns of
+        what each offers though we will focus on creating an Empty project from here on.</p>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    Recent
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>This is for recently accessed projects.</strong> This can be super convenient for quickly
+                    hopping into the software and picking up where you left off, though accessing Cubase projects can be
+                    done even faster by simply looking into the directory where the projects are stored.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Recording
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>These are quick links for setting up recording.</strong> They will create an empty project
+                    populated by the specifications in the quick link, and can be convenient for setting up quickly
+                    without having to do all the legwork.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Scoring
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>This is for creating music scores </strong> which is how music is notated on paper. This is
+                    far beyond the scope of this tutorial but just know that Cubase has formidable scoring capabilities
+                    if that is something you are interested. I'm not here to give you my opinion on it since I honestly
+                    do not use it.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Production
+                </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>This is for quicky getting into the mixing stage of a project.</strong> It presents a
+                    handful of quick links that will create a new project with the specifications. These can be helpful
+                    if you know you're going to sit down and mix all the instruments together starting from audio files
+                    or stems.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    Mastering
+                </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>This is convenient for getting your master started.</strong> Similar to other quick links,
+                    this will quickly create a project ready for the mastering stage of the project, with a template of
+                    plugins already in place for you. For where we are in this tutorial, it's unlikely you're going to
+                    need this feature any time soon.
+                    overflow.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSix">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                    <strong>More (Reccomended)</strong>
+                </button>
+            </h2>
+            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>This is what we will focus on, create an Empty project.</strong> You would think there would
+                    be more features in the "more" section but apparently not. Anyways we're just going to start with an
+                    empty project, since an empty project has the same capabilities as the other project types we have
+                    already discussed. Also, if you understand the basic fundamental features of your project, it will
+                    make the other project types musch easier to use.
+                    overflow.
+                </div>
+            </div>
+        </div>
+    </div>
 
     </br>
     </br>
-    <h2 id="First">Next we're going to put you under, don't want to be awake for the surgery!</h2>
+    <h2 id="Third">Create an Empty Project</h2>
+    <p>Hold on! Don't go creating that project right away, make sure you have your <strong>project file destination
+            folder</strong> set
+        to where you want everything to be saved. I created a file on my desktop for this so I can quickly access the
+        project files, but keep in mind that this folder can get pretty large so definitely don't select the desktop as
+        the folder! This project folder will keep track of various things like recorded audio files, any screenshots you
+        take, mixdowns and more.</p>
+    </br>
+    <p>Once that's taken care of, create an empty project. It should take you to a screen that looks like this:</p>
+    <img src="Capture1.PNG" width="900px" alt="capture1">
+    <p>Now there's a lot going on in this photo, but we're going to break it all down slowly so you can get comfortable.
+        Let's start at the top with the menu bar, and we'll highlight notable and important features for the beginner.
+    </p>
     <!-- Card code from https://getbootstrap.com/docs/5.0/components/card/ -->
     <div class="row">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's
-                    content.</p>
+                <h5 class="card-title">File</h5>
+                <p class="card-text">This is where we <strong>create new files, save existing files, export and import
+                        media,</strong>
+                    and even perform handly functions like saving and recovering backups of our projects. Remember to
+                    save your work often with the shortcut Ctrl+S, and make backups of projects as well, we never want
+                    to lose our precious creation!</p>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Edit</h5>
+                <p class="card-text">This has a ton of features, and they can vary depending on what wer are currently
+                    selecting, so for the most part there isn't much to mention. Most if not all important Edit
+                    functions can be accessed in other ways that we will get into, but it is worth mentioning this is
+                    where we can change <strong>preferences</strong> about the project.</p>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Project</h5>
+                <p class="card-text">This contains a lot of miscellaneous information about our project, like hiding or
+                    showing all automation on all tracks. There's a lot of cool stuff to go through here, but a very
+                    useful link is the <strong>Project Setup</strong> section, which takes us to many configurations of
+                    the project. Here we can adjust our project length, framerate of project, and even the file format
+                    we output. Having the correct file format can super important, and I reference this part a lot.</p>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Audio</h5>
+                <p class="card-text">Similar to the Edit tag, this info is only useful and/or available when we are
+                    currently selecting an audio file in our project. You can edit the file in many useful ways here,
+                    such as resampling, reversing, muting, and so much more. Once you have audio files in your project,
+                    refer back to this tab and experiment with the many editing features.</p>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">MIDI</h5>
+                <p class="card-text">This is for features related to MIDI instruments. If you don't know what these are
+                    or don't plan on using them, you can skip over this. This is useful for configuring aspects of your
+                    MIDI instrument, but most of these functions can be done elsewhere.</p>
             </div>
         </div>
         <div class="card" style="width: 18rem;">
@@ -235,66 +385,7 @@
 
     </br>
     </br>
-    <!-- Code borrowed from https://getbootstrap.com/docs/5.0/components/accordion/ -->
-    <h2 id="Third">This is where the fun begins</h2>
-    <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">
-                    Accordion Item #1
-                </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse
-                    plugin adds the appropriate classes that we use to style each element. These classes control the
-                    overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of
-                    this with custom CSS or overriding our default variables. It's also worth noting that just about any
-                    HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                </div>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Accordion Item #2
-                </button>
-            </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <strong>This is the second item's accordion body.</strong> It is hidden by default, until the
-                    collapse plugin adds the appropriate classes that we use to style each element. These classes
-                    control the overall appearance, as well as the showing and hiding via CSS transitions. You can
-                    modify any of this with custom CSS or overriding our default variables. It's also worth noting that
-                    just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit
-                    overflow.
-                </div>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Accordion Item #3
-                </button>
-            </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the
-                    collapse plugin adds the appropriate classes that we use to style each element. These classes
-                    control the overall appearance, as well as the showing and hiding via CSS transitions. You can
-                    modify any of this with custom CSS or overriding our default variables. It's also worth noting that
-                    just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit
-                    overflow.
-                </div>
-            </div>
-        </div>
-    </div>
+
     </br>
     </br>
 
