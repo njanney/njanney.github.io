@@ -52,13 +52,13 @@
             if (x == "" || y == "" || z == "") {
                 alert("All fields must be filled out");
             }
-            if (x == "blue") {
+            if (x == "f4") {
                 score += 1;
             }
-            if (y == "yellow") {
+            if (y == "inserts") {
                 score += 1;
             }
-            if (z == "red") {
+            if (z == "yes") {
                 score += 1;
             }
             // This will return user score
@@ -80,9 +80,9 @@
         <h2>Quiz</h2>
         <!-- form code from https://getbootstrap.com/docs/4.0/components/forms/ -->
         <form name="myForm" method="post">
-            Type "blue" in this field to get the right answer: <input type="text" name="first"></br>
-            Type "yellow" in this field to get the right answer: <input type="text" name="second"></br>
-            Type "red" in this field to get the right answer: <input type="text" name="third"></br>
+            What key do you press to access the Audio Connections? <input type="text" name="first"></br>
+            Which tab of the inspector is used for inserting plugins? <input type="text" name="second"></br>
+            Are you going to listen to my music? (the correct answer is yes) <input type="text" name="third"></br>
             <input type="submit" value="check" onClick="validateForm()">
         </form>
     </div>

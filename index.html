@@ -45,33 +45,15 @@
         }
     </style>
 
-    <script>
-        function setInvisible() {
-            alert("HEY");
-            var mySpinner = document.getElementById("mySpinner");
-            mySpinner.style.display = hidden;
-        }
-    </script>
-
 </head>
 
 <!-- Scrollspy info from https://getbootstrap.com/docs/4.0/components/scrollspy/ -->
 
 <body data-bs-spy="scroll" data-target=".navbar" data-bs-offset="0" onLoad="setInvisible()">
 
-    <!-- spinner bootstrap from https://getbootstrap.com/docs/5.0/components/spinners/ -->
-    <!-- <div id="mySpinner" class="spinner-border" role="status" onload="setInvisible()">
-        <span class="visually-hidden">Loading...</span>
-    </div> -->
-    <div id="mySpinner" class="d-flex justify-content-center">
-        <div class="spinner-border" role="status">
-            <span class="sr-only"></span>
-        </div>
-    </div>
-
     <!-- The following taken from https://getbootstrap.com/docs/4.0/components/navbar/ -->
     <nav id="navbar-example2" class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">Cubase LE AI Elements 11 Beginner's Guide</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -80,38 +62,32 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Getting Started <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#">Getting Started </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#First">Linke</a>
+                    <a class="nav-link" href="#First">Startup</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#Second">Link</a>
+                    <a class="nav-link" href="#Second">Create Empty</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#Third">Liank</a>
+                    <a class="nav-link" href="#Third">Checklist</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#Fourth">link2</a>
+                    <a class="nav-link" href="#Fourth">Creating Tracks</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#Fifth">link2</a>
+                    <a class="nav-link" href="#Fifth">Takeoff!</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#Sixth">linkse</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#Seventh">linkse</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#Eighth">linkse</a>
+                    <a class="nav-link" href="#Sixth">Quiz</a>
                 </li>
             </ul>
 
         </div>
     </nav>
 
-    <h2 id="First">Getting Started</h2>
+    <h2>Getting Started</h2>
     <p>Thanks for checking out my Cubase LE AI Elements 11 Beginner's Guide! Hopefully you find the information I
         provide helpful in jumpstarting
         your passion for creating sound. Note that some of this information may be applicable to other versions of
@@ -135,9 +111,9 @@
     </ul>
     <p>Download Cubase, I reccomend downloading any additional files it suggests unless they seem completely unecessary,
         and run the program</p>
-    <h2 id="Second">The startup screen</h2>
+    <h2 id="First">The Startup Screen</h2>
     <p>When first starting Cubase, you will likely get prompted on what audio interface you are currently using. We will
-        come back to this lLINKater
+        come back to this later
         in the tutorial but if you don't know what to do, just pick the default interface for your device.</br>
         Anyways, this is what information is given to you on the startup screen: most of which is not important for the
         scope of this tutorial but we will go through anyways.
@@ -255,7 +231,7 @@
 
     </br>
     </br>
-    <h2 id="Third">Create an Empty Project</h2>
+    <h2 id="Second">Create an Empty Project</h2>
     <p>Hold on! Don't go creating that project right away, make sure you have your <strong>project file destination
             folder</strong> set
         to where you want everything to be saved. I created a file on my desktop for this so I can quickly access the
@@ -318,79 +294,209 @@
         </div>
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's
-                    content.</p>
+                <h5 class="card-title">Media</h5>
+                <p class="card-text">This tab is for importing specific content types or content from certain formats,
+                    such as locating and importing data from a cd for example. For a beginner, this tab is pretty
+                    irrelevant but still worth mentioning.</p>
             </div>
         </div>
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's
-                    content.</p>
+                <h5 class="card-title">Transport</h5>
+                <p class="card-text">This tab refers to the content you see at the very bottom of your screen, which is
+                    known as the transport panel. We will go over the features of this later, but just know that the
+                    same actions that can be taken there are available here aswell.</p>
             </div>
         </div>
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's
-                    content.</p>
+                <h5 class="card-title">Studio</h5>
+                <p class="card-text">This is the <strong>most important</strong> tab, especially for beginners. Here you
+                    can access the <strong>Studio Setup</strong> as well as anage your <strong>audio
+                        connections</strong> with the hotkey f4. These features are crucial to basic setup and
+                    <strong>here is the first place you should look if something is going wrong.</strong>
+                </p>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Window</h5>
+                <p class="card-text">Not a lot to say about this tab, this tab helps you keep track of multiple windows
+                    in the project space, which is useful if you have multiple projects open.</p>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Hub</h5>
+                <p class="card-text">This tab can take you back to the startup menu that we saw earlier, which is nice
+                    if you want to start a project but cannot find the startup menu.</p>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Help</h5>
+                <p class="card-text">This can quickly take you to online and offline help menus, where you can get into
+                    the nitty-gritty of all the little details and features of this wonderful program. The scope of this
+                    tutorial should set you up for what you need, but these menus can fill in all the details.</p>
             </div>
         </div>
     </div>
 
     </br>
     </br>
-    <h2 id="Second">Addressing the elephant in the room</h2>
-    <!-- popover code from https://getbootstrap.com/docs/5.0/components/popovers/ -->
-    <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom"
-        data-content="Vivamus
-        sagittis lacus vel augue laoreet rutrum faucibus.">
-        Popover on bottom
-    </button>
-    <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom"
-        data-content="Vivamus
-        sagittis lacus vel augue laoreet rutrum faucibus.">
-        Popover on bottom
-    </button>
-    <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom"
-        data-content="Vivamus
-        sagittis lacus vel augue laoreet rutrum faucibus.">
-        Popover on bottom
-    </button>
-    <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom"
-        data-content="Vivamus
-        sagittis lacus vel augue laoreet rutrum faucibus.">
-        Popover on bottom
-    </button>
+    <h2 id="Third">I'm Ready to start recording! Why can't I start yet?</h2>
+    <p>Before we can truly get started, we have to perform a little bit of maintenance to make sure ourr studio is all
+        in working order. It's hard to know what is and what isn't going to work immediatley when you start your
+        project, but usually it comes down to a few different possibilities.</p>
+    <!-- bootstrap collapse code from https://getbootstrap.com/docs/5.0/components/collapse/ -->
+    <p>
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button"
+            aria-expanded="false" aria-controls="multiCollapseExample1">Studio Setup Check</a>
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2"
+            aria-expanded="false" aria-controls="multiCollapseExample2">Audio Connection Check</button>
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample3"
+            aria-expanded="false" aria-controls="multiCollapseExample3">Active Project Check</button>
+    </p>
+    <div class="row">
+        <div class="col">
+            <div class="collapse multi-collapse" id="multiCollapseExample1">
+                <div class="card card-body">
+                    Remember we can configure our studio setup by referring to the <strong>Studio Setup</strong>
+                    function from the Studio tab at the top of your screen. Check that you have the correct audio
+                    interface plugged in and active within your project. You can change this by referring to which ASIO
+                    driver you currently have selected.
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="collapse multi-collapse" id="multiCollapseExample2">
+                <div class="card card-body">
+                    Assuming our interface is plugged in and active, go ahead and <strong>press f4</strong>. This will
+                    bring up the audio connections configuration, where you can craete new audio input and outpur buses.
+                    I recommend the defualt stereo output bus, but you need to create what works for you for the inputs.
+                    For me, I have an audio bus that has all four of my inputs indivually mapped to mono inputs so I can
+                    acces one input at a time if I need, but this will all come down to the properties of your
+                    interface, how you want to record, and what microphones you are using to record.
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="collapse multi-collapse" id="multiCollapseExample3">
+                <div class="card card-body">
+                    It's a simple mistake even I make from time to time, and I'm a professional! Just look to the top
+                    left of your screen and make sure the thunderbolt icon is an orange color instead of grey, this will
+                    set the project to active.
+                </div>
+            </div>
+        </div>
+    </div>
+    <h2 id="Fourth">Okay, let's get some audio track into our project!</h2>
+    <p>There are a number of different types of audio tracks available to add to the project, and we can start by right
+        clicking in the section just below our input/output channels.
+    </p>
+    <img src="Screenshot (13).png" alt="screenchot">
+    <p>
+        You'll see that we can create all sorts of channels, but most of these are likely too complex or simply
+        irrelevant to a beginner. For now let's focus on:
+    </p>
+    <p>
+        <a class="btn btn-secondary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button"
+            aria-expanded="false" aria-controls="multiCollapseExample1">Add Audio Track</a>
+        <button class="btn btn-secondary" type="button" data-bs-toggle="collapse"
+            data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Add
+            Instrument Track</button>
+        <button class="btn btn-secondary" type="button" data-bs-toggle="collapse"
+            data-bs-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Add
+            Effect Track</button>
+        <button class="btn btn-secondary" type="button" data-bs-toggle="collapse"
+            data-bs-target="#multiCollapseExample4" aria-expanded="false" aria-controls="multiCollapseExample4">Add
+            Folder Track</button>
+    </p>
+    <div class="row">
+        <div class="col">
+            <div class="collapse multi-collapse" id="multiCollapseExample1">
+                <div class="card card-body">
+                    Arguably the most useful. Available for recording new audio and open to reciving imported audio
+                    tracks.
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="collapse multi-collapse" id="multiCollapseExample2">
+                <div class="card card-body">
+                    If you're planning to use MIDI, this is the way to go. It should get you set up with your digital
+                    instrument software
+                    assuming you already own that.
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="collapse multi-collapse" id="multiCollapseExample3">
+                <div class="card card-body">
+                    Lots of fun mixing potential. You can take sends from other tracks, such as instrument or audio
+                    tracks,
+                    and send their output to an FX track for extra plugins or whatver your heart desires!
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="collapse multi-collapse" id="multiCollapseExample4">
+                <div class="card card-body">
+                    Very useful for organizing your work! Especially if you are recording an instrument with multiple
+                    audio
+                    inputs, like fully mic'd drumset
+                </div>
+            </div>
+        </div>
+    </div>
+    <h3>Possible troubleshooting notes:</h3>
     <ul>
-        <li>A Scrollspy is a feature that interacts with existing bootstrap components</li>
-        <li>It highlights elements that are found in the body</li>
+        <li>When your audio track is in place, double check it has the correct input from the input bus by checking the
+            inspector on the far left of the screen and opening up the tab with the same name as the Audio track. There
+            will be details about the inputs and outpus of the track listed here.</li>
+        <li>Something similar can happen to your instrument track, so make sure it is receiving the correct MIDI inputs,
+            or receiving MIDI inputs at all in the same section.</li>
     </ul>
+    <!-- Badge code from https://getbootstrap.com/docs/5.0/components/badge/-->
+    <h3>Notes about the inspector section for a given track</h3>
+    <span class="badge rounded-pill bg-danger text-dark">Track name tab</span>
     <ul>
-        <li>A Scrollspy is a feature that interacts with existing bootstrap components</li>
-        <li>It highlights elements that are found in the body</li>
+        <li>Can manage inputs and outputs of a given audio track, or instrument track</li>
+        <li>Additional location to touch up panning settings or volume</li>
     </ul>
+    <span class="badge rounded-pill bg-success text-dark">Equalizers</span>
     <ul>
-        <li>A Scrollspy is a feature that interacts with existing bootstrap components</li>
-        <li>It highlights elements that are found in the body</li>
+        <li>All Audio tracks come with simple built-in equalizers, so you can modify aspects of your sound here</li>
+        <li>These EQ's have only four bands, so use them wisely or find a plugin to download with better EQ settings. I
+            personally reccomend TDR Nova.</li>
     </ul>
+    <span class="badge rounded-pill bg-warning text-dark">Inserts</span>
     <ul>
-        <li>A Scrollspy is a feature that interacts with existing bootstrap components</li>
-        <li>It highlights elements that are found in the body</li>
+        <li>All plugins are going right here, where you can put in as much as 8 plugins on a single track in our version
+            of Cubase, go wild!</li>
     </ul>
-
-    </br>
-    </br>
+    <span class="badge rounded-pill bg-info text-dark">Sends</span>
+    <ul>
+        <li>If we also have an FX track in our project, we can send the output of this channel to that FX track for
+            additional tweaks.</li>
+        <li>There are many crazy things you can do with sends that are beyond the scope of this tutorial.</li>
+    </ul>
+    <span class="badge rounded-pill bg-light text-dark">Fader</span>
+    <ul>
+        <li>If you currently have the MixConsole tab selected near the bottom of your screen, this should all look very
+            familiar.</li>
+        <li>This is another way to modify the volume and panning of our track</li>
+    </ul>
 
     </br>
     </br>
 
     <!-- code from https://getbootstrap.com/docs/5.0/components/carousel/ -->
-    <h2 id="Fourth">She's got someone else</h2>
+    <h2 id="Fifth">Let's get it started!</h2>
+    <p>That's all! From here on you should have all the necessary tools to get a project started and get the ideas
+        flowing. This can all be very daunting to take in, and the undertaking of a single project can be intense, so
+        here are some example photos of tracks of mine to give you a sense of what your project will eventually look
+        like:</p>
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
@@ -402,13 +508,13 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="juggler.png" class="d-block w-100" alt="img1">
+                <img src="Screenshot (14).png" class="d-block w-100" alt="img1">
             </div>
             <div class="carousel-item">
-                <img src="scoobie.png" class="d-block w-100" alt="img2">
+                <img src="Screenshot (15).png" class="d-block w-100" alt="img2">
             </div>
             <div class="carousel-item">
-                <img src="self_portrait.png" class="d-block w-100" alt="...">
+                <img src="Screenshot (16).png" class="d-block w-100" alt="...">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -423,88 +529,23 @@
         </button>
     </div>
 
-    <p id="Fifth">One of these images will eventually be an image map to the following sections</p>
-    <!-- Badge code from https://getbootstrap.com/docs/5.0/components/badge/-->
-    <h3>Here's some more info<span class="badge rounded-pill bg-warning text-dark">Yellow</span></h3>
-    <ul>
-        <li>Very Important</li>
-        <li>You better read this stuff</li>
-        <li>It might be on the quiz</li>
-    </ul>
-    <h3>Here's some more info<span class="badge rounded-pill bg-warning text-dark">Yellow</span></h3>
-    <ul>
-        <li>Very Important</li>
-        <li>You better read this stuff</li>
-        <li>It might be on the quiz</li>
-    </ul>
-    <h3>Here's some more info<span class="badge rounded-pill bg-warning text-dark">Yellow</span></h3>
-    <ul>
-        <li>Very Important</li>
-        <li>You better read this stuff</li>
-        <li>It might be on the quiz</li>
-    </ul>
-    <h3>Here's some more info<span class="badge rounded-pill bg-warning text-dark">Yellow</span></h3>
-    <ul>
-        <li>Very Important</li>
-        <li>You better read this stuff</li>
-        <li>It might be on the quiz</li>
-    </ul>
-
     </br>
     </br>
-    <h2>Links to examples:</h2>
+    <h2>Here is some of the work I have created with this fantastic software:</h2>
     <p>
-        <a href="juggler.png">Navbar Example</a>
+        <a href="https://open.spotify.com/album/1RsBTG5MhqSRbbFgeP2Lxb?si=rsFzMe9aSu-fWNHCX57qsg">Indigo Peaks - My
+            Hands Are Full - June 2022</a>
         </br>
-        <a href="juggler.png">Nested Nav Example</a>
+        <a href="https://open.spotify.com/album/2KQc7Hn8zXT1PFVrWGyQ1J?si=y2zd23eJSi-r2vILUPEKKQ">Indigo Peaks -
+            Carolina Blue - October 2021</a>
         </br>
-        <a href="juggler.png">List-Group Example</a>
+        <a href="https://open.spotify.com/album/6L4MkYyQZRkzowkxtcUjX0?si=eM3snvEdQYyQsmPxPMQkFw">Indigo Peaks - Falling
+            Rock - August 2018</a>
     </p>
 
     </br>
     </br>
-    <h2 id="Sixth">I'm Ripe with things to say</h2>
-    <!-- bootstrap collapse code from https://getbootstrap.com/docs/5.0/components/collapse/ -->
-    <p>
-        <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button"
-            aria-expanded="false" aria-controls="multiCollapseExample1">Toggle first element</a>
-        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2"
-            aria-expanded="false" aria-controls="multiCollapseExample2">Toggle second element</button>
-    </p>
-    <div class="row">
-        <div class="col">
-            <div class="collapse multi-collapse" id="multiCollapseExample1">
-                <div class="card card-body">
-                    Some placeholder content for the first collapse component of this multi-collapse example. This panel
-                    is hidden by default but revealed when the user activates the relevant trigger.
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="collapse multi-collapse" id="multiCollapseExample2">
-                <div class="card card-body">
-                    Some placeholder content for the second collapse component of this multi-collapse example. This
-                    panel is hidden by default but revealed when the user activates the relevant trigger.
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    </br>
-    </br>
-    <h2 id="Seventh">Here is a video demonstration of it all in action!</h2>
-    <iframe width="720" height="480" src="https://www.youtube.com/embed/OhE_WAVZhvI" title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
-
-
-
-
-    </br>
-    </br>
-    <h2 id="Eighth">Time for a quiz! Did you learn anything?</h2>
+    <h2 id="Sixth">Time for a quiz! Did you learn anything?</h2>
     <!-- Button code from https://getbootstrap.com/docs/5.0/components/buttons/ -->
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Take the quiz!
