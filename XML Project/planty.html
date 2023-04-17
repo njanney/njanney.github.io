@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+
+<head>
+    <!-- Most code borrowed from http://www.dotsplace.com/com494s23/usingXML.html -->
+    <meta charset="UTF-8">
+    <title>My XML project</title>
+    <script>
+        function loadXML() {
+            var XMLhttp = new XMLHttpRequest();
+            XMLhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("testBox").innerHTML = XMLhttp.responseText;
+                    var xmlObject = XMLhttp.responseXML
+                    document.getElementById("theCount").innerHTML = xmlObject.getElementsByTagName("PLANT").length;
+                }
+            };
+            XMLhttp.open("GET", "http://www.dotsplace.com/com494s23/xml/plants.xml", true);
+            XMLhttp.send();
+        }   
+    </script>
+</head>
+
+<body onLoad="loadXML()">
+    Hello
+    <div id="testBox"></div>
+    <p>How many records? <span id="theCount"></span></p>
+
+</body>
+
+</html>
