@@ -13,7 +13,8 @@
 
                     document.getElementById("testBox").innerHTML = XMLhttp.responseText;
                     var xmlObject = this.responseXML;
-                    document.getElementById("theCount").innerHTML = xmlObject.getElementsByTagName("PLANT")[0].textContent;
+                    var test = xmlObject.getElementsByTagName("PLANT")[0].textContent;
+                    document.getElementById("theCount").innerHTML = test;
                 }
             }
             XMLhttp.open("GET", "https://raw.githubusercontent.com/njanney/njanney.github.io/main/XMLProject/xml/plants.xml", true);
