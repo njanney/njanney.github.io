@@ -13,7 +13,7 @@
 
                     document.getElementById("testBox").innerHTML = XMLhttp.responseText;
                     var xmlObject = XMLhttp.responseXML
-                    document.getElementById("theCommon").innerHTML = xmlObject.getElementsByTagName("PLANT").text;
+                    document.getElementById("theCount").innerHTML = xmlObject.getElementsByTagName("PLANT").length;
                 }
             };
             XMLhttp.open("GET", "https://raw.githubusercontent.com/njanney/njanney.github.io/main/XMLProject/xml/plants.xml", true);
@@ -25,8 +25,8 @@
 <body onLoad="loadXML()">
     Hello
     <div id="testBox"></div>
-    <!-- <p>How many records? <span id="theCommon"></span></p> -->
-    <div id="theCommon"></div>
+    <p>How many records? <span id="theCount"></span></p>
+    <!-- <div id="theCount"></div> -->
 
 </body>
 
