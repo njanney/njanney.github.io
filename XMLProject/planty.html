@@ -12,7 +12,7 @@
                 if (this.readyState == 4 && this.status == 200) {
 
                     document.getElementById("testBox").innerHTML = XMLhttp.responseText;
-                    var xmlObject = XMLhttp.responseXML
+                    var xmlObject = XMLhttp.responseXML;
                     document.getElementById("theCount").innerHTML = xmlObject.getElementsByTagName("PLANT").length;
                 }
             };
