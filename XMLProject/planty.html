@@ -12,10 +12,10 @@
                 if (this.readyState == 4 && this.status == 200) {
 
                     document.getElementById("testBox").innerHTML = XMLhttp.responseText;
-                    var xmlObject = XMLhttp.responseXML;
-                    document.getElementById("theCount").innerHTML = xmlObject.getElementsByTagName("PLANT").length;
+                    var xmlObject = this.responseXML;
+                    document.getElementById("theCount").innerHTML = xmlObject.getElementsByTagName("PLANT")[0].textContent;
                 }
-            };
+            }
             XMLhttp.open("GET", "https://raw.githubusercontent.com/njanney/njanney.github.io/main/XMLProject/xml/plants.xml", true);
             XMLhttp.send();
         }   
