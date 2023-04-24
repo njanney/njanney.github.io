@@ -7,24 +7,22 @@
     <title>My XML project</title>
     <script>
         function loadXML() {
-            var txt, parser, xmlDoc;
+
             var XMLhttp = new XMLHttpRequest();
             XMLhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
                     document.getElementById("testBox").innerHTML = XMLhttp.responseText;
-                    var xmlText = XMLhttp.responseText;
-                    // xmlDoc = parser.parseFromString(xmlText, "text/xml");
-                    var test = parser.parseFromString(xmlText, "text/xml");
-                    // var xmlObject = this.responseXML
-                    // var test = xmlObject.getElementsByTagName("PLANT")[0].textContent;
+                    
+                    var xmlObject = this.responseXML;
+                    var test = xmlObject.getElementsByTagName("PLANT").textContent;
 
                     document.getElementById("test").innerHTML = test;
                 }
             };
-            parser = new DOMParser();
+
             XMLhttp.open("GET", "https://raw.githubusercontent.com/njanney/njanney.github.io/main/XMLProject/xml/plants.xml", true);
-            // XMLhttp.overrideMimeType("text/xml");
+            XMLhttp.overrideMimeType("text/xml");
             XMLhttp.send();
         }   
     </script>
