@@ -15,7 +15,7 @@
                     document.getElementById("testBox").innerHTML = XMLhttp.responseText;
                     
                     var xmlObject = this.responseXML;
-                    var test = xmlObject.getElementsByTagName("PLANT").textContent;
+                    var test = xmlObject.getElementsByTagName("PLANT").length;
 
                     document.getElementById("test").innerHTML = test;
                 }
