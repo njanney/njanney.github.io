@@ -10,14 +10,15 @@
             XMLhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     document.getElementById("testBox").innerHTML = XMLhttp.responseText;
+
                     console.log(XMLhttp);
-                    var xmlObject = this.responseXML;
-                    //alert(xmlObject.getElementsByTagName("PLANT").length);                    
+                    var xmlObject = this.responseXML;                  
 
                     document.getElementById("theCount").innerHTML = xmlObject.getElementsByTagName("PLANT").length;
                 }
             };
-            XMLhttp.open("GET", "https://raw.githubusercontent.com/njanney/njanney.github.io/main/XMLProject/xml/plants.xml", true);
+            XMLhttp.open("GET", "https://raw.githubusercontent.com/nmarencik/nmarencik.github.io/main/xml/plants.xml", true);
+            // XMLhttp.open("GET", "https://raw.githubusercontent.com/njanney/njanney.github.io/main/XMLProject/xml/plants.xml", true);
             XMLhttp.overrideMimeType('text/xml');
             XMLhttp.send();
 
