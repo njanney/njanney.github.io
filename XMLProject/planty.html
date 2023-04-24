@@ -2,37 +2,33 @@
 <html>
 
 <head>
-    <!-- Most code borrowed from http://www.dotsplace.com/com494s23/usingXML.html -->
     <meta charset="UTF-8">
-    <title>My XML project</title>
+    <title>working with hml</title>
     <script>
         function loadXML() {
-
             var XMLhttp = new XMLHttpRequest();
             XMLhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-
                     document.getElementById("testBox").innerHTML = XMLhttp.responseText;
-                    
-                    var xmlObject = XMLhttp.responseXML;
-                    var test = xmlObject.getElementsByTagName("PLANT").length;
+                    console.log(XMLhttp);
+                    var xmlObject = this.responseXML;
+                    //alert(xmlObject.getElementsByTagName("PLANT").length);                    
 
-                    document.getElementById("test").innerHTML = test;
+                    document.getElementById("theCount").innerHTML = xmlObject.getElementsByTagName("PLANT").length;
                 }
             };
-
             XMLhttp.open("GET", "https://raw.githubusercontent.com/njanney/njanney.github.io/main/XMLProject/xml/plants.xml", true);
             XMLhttp.overrideMimeType('text/xml');
             XMLhttp.send();
-        }   
+
+        } 
     </script>
 </head>
 
 <body onLoad="loadXML()">
     Hello
     <div id="testBox"></div>
-    <span id="test"></span>
-
+    <p>How many records? <span id="theCount"></span></p>
 </body>
 
 </html>
