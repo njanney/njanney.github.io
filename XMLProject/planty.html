@@ -13,13 +13,13 @@
                 if (this.readyState == 4 && this.status == 200) {
 
                     document.getElementById("testBox").innerHTML = XMLhttp.responseText;
-                    var xmlText = this.response
+                    var xmlText = this.responseText;
                     // xmlDoc = parser.parseFromString(xmlText, "text/xml");
                     var test = parser.parseFromString(xmlText, "text/xml");
                     // var xmlObject = this.responseXML
                     // var test = xmlObject.getElementsByTagName("PLANT")[0].textContent;
 
-                    document.getElementById("test").innerHTML = test
+                    document.getElementById("test").innerHTML = test;
                 }
             };
             parser = new DOMParser();
