@@ -13,7 +13,7 @@
 
                     document.getElementById("testBox").innerHTML = XMLhttp.responseText;
                     var xmlObject = this.responseXML
-                    var test = xmlObject.getElementsByTagName("PLANT").length;
+                    var test = xmlObject.getElementsByTagName("PLANT")[0].textContent;
                     document.getElementById("theCount").innerHTML = test
                 }
             };
