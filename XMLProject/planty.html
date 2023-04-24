@@ -13,7 +13,7 @@
                 if (this.readyState == 4 && this.status == 200) {
 
                     document.getElementById("testBox").innerHTML = XMLhttp.responseText;
-                    var xmlText = this.responseText;
+                    var xmlText = XMLhttp.responseText;
                     // xmlDoc = parser.parseFromString(xmlText, "text/xml");
                     var test = parser.parseFromString(xmlText, "text/xml");
                     // var xmlObject = this.responseXML
