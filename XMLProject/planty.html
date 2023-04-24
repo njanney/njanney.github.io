@@ -14,7 +14,7 @@
 
                     document.getElementById("testBox").innerHTML = XMLhttp.responseText;
                     
-                    var xmlObject = XMLhttp.responseText;
+                    var xmlObject = XMLhttp.responseXML;
                     var test = xmlObject.getElementsByTagName("PLANT").length;
 
                     document.getElementById("test").innerHTML = test;
@@ -22,7 +22,7 @@
             };
 
             XMLhttp.open("GET", "https://raw.githubusercontent.com/njanney/njanney.github.io/main/XMLProject/xml/plants.xml", true);
-            XMLhttp.overrideMimeType("text/xml");
+            XMLhttp.overrideMimeType('text/xml');
             XMLhttp.send();
         }   
     </script>
