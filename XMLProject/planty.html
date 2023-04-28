@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>working with hml</title>
+    <title>working with xml</title>
     <!-- <script>
         function loadXML() {
             var XMLhttp = new XMLHttpRequest();
@@ -25,9 +25,9 @@
         } 
     </script> -->
     <script>
-        window.addEventListener("load", function () {
-            getRows();
-        });
+        // window.addEventListener("load", function () {
+        //     getRows();
+        // });
 
         function getRows() {
             var xmlhttp = new XMLHttpRequest();
@@ -95,11 +95,12 @@
     </style>
 </head>
 
-<body>
-    <!-- <body onLoad="loadXML()">
-    Hello
+<!-- <body> -->
+
+<body onLoad="getRows()">
+    <!-- Hello
     <div id="testBox"></div>
-    <p>How many records? <span id="theCount"></span></p> -->
+    <p>How many records? <span id="theCount"></span></p> --> -->
     <!-- code from https://www.webucator.com/article/how-to-dynamically-populate-an-html-table-with-xml/ -->
     <table id="MainTable">
         <tbody id="BodyRows"></tbody>
