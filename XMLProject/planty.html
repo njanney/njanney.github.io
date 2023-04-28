@@ -31,7 +31,6 @@
 
         function getRows() {
             var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("get", "https://raw.githubusercontent.com/nmarencik/nmarencik.github.io/main/xml/plants.xml", true);
             xmlhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     console.log(XMLhttp);
@@ -39,7 +38,9 @@
                     showResult(xmlObject);
                 }
             };
-            xmlhttp.send(null);
+            xmlhttp.open("get", "https://raw.githubusercontent.com/nmarencik/nmarencik.github.io/main/xml/plants.xml", true);
+            xmlhttp.overrideMimeType('text/xml');
+            xmlhttp.send();
         }
 
         function showResult(xmlhttp) {
