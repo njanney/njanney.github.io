@@ -47,7 +47,7 @@
             var xmlDoc = xmlhttp.responseXML.documentElement;
             removeWhitespace(xmlDoc);
             var outputResult = document.getElementById("BodyRows");
-            var rowData = xmlDoc.getElementsByTagName("Employee");
+            var rowData = xmlDoc.getElementsByTagName("PLANT");
 
             addTableRowsFromXmlDoc(rowData, outputResult);
         }
