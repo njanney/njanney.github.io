@@ -36,8 +36,8 @@
             xmlhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     console.log(xmlhttp);
-                    var xmlObject = this.responseXML;
-                    showResult(xmlObject);
+                    // var xmlObject = this.responseXML;
+                    showResult(this);
                 }
             };
             xmlhttp.send();
