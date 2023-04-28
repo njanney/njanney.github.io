@@ -31,6 +31,8 @@
 
         function getRows() {
             var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("get", "https://raw.githubusercontent.com/njanney/njanney.github.io/main/XMLProject/xml/plants.xml", true);
+            xmlhttp.overrideMimeType('text/xml');
             xmlhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     console.log(xmlhttp);
@@ -38,8 +40,6 @@
                     showResult(xmlObject);
                 }
             };
-            xmlhttp.open("get", "https://raw.githubusercontent.com/njanney/njanney.github.io/main/XMLProject/xml/plants.xml", true);
-            xmlhttp.overrideMimeType('text/xml');
             xmlhttp.send();
         }
 
