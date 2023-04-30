@@ -1,111 +1,96 @@
 <!doctype html>
-<html>
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-<head>
-    <meta charset="UTF-8">
-    <title>working with xml</title>
-    <!-- <script>
-        function loadXML() {
-            var XMLhttp = new XMLHttpRequest();
-            XMLhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("testBox").innerHTML = XMLhttp.responseText;
+    <xsl:template match="/">
+        <html>
 
-                    console.log(XMLhttp);
-                    var xmlObject = this.responseXML;                  
+        <head>
+            <meta charset="UTF-8">
+            <title>working with xml</title>
+            <script>
 
-                    document.getElementById("theCount").innerHTML = xmlObject.getElementsByTagName("PLANT").length;
+                // code from https://www.webucator.com/article/how-to-dynamically-populate-an-html-table-with-xml/
+                function getRows() {
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.open("get", "https://raw.githubusercontent.com/nmarencik/nmarencik.github.io/main/xml/plants.xml", true);
+                    xmlhttp.overrideMimeType('text/xml');
+                    xmlhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            console.log(xmlhttp);
+                            // var xmlObject = this.responseXML;
+                            showResult(this);
+                        }
+                    };
+                    xmlhttp.send();
                 }
-            };
-            XMLhttp.open("GET", "https://raw.githubusercontent.com/nmarencik/nmarencik.github.io/main/xml/plants.xml", true);
-            // XMLhttp.open("GET", "https://raw.githubusercontent.com/njanney/njanney.github.io/main/XMLProject/xml/plants.xml", true);
-            XMLhttp.overrideMimeType('text/xml');
-            XMLhttp.send();
 
-        } 
-    </script> -->
-    <script>
-        // window.addEventListener("load", function () {
-        //     getRows();
-        // });
+                function showResult(xmlhttp) {
+                    var xmlDoc = xmlhttp.responseXML.documentElement;
+                    removeWhitespace(xmlDoc);
+                    var outputResult = document.getElementById("BodyRows");
+                    var rowData = xmlDoc.getElementsByTagName("PLANT");
 
-        function getRows() {
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("get", "https://raw.githubusercontent.com/nmarencik/nmarencik.github.io/main/xml/plants.xml", true);
-            xmlhttp.overrideMimeType('text/xml');
-            xmlhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    console.log(xmlhttp);
-                    // var xmlObject = this.responseXML;
-                    showResult(this);
+                    addTableRowsFromXmlDoc(rowData, outputResult);
                 }
-            };
-            xmlhttp.send();
-        }
 
-        function showResult(xmlhttp) {
-            var xmlDoc = xmlhttp.responseXML.documentElement;
-            removeWhitespace(xmlDoc);
-            var outputResult = document.getElementById("BodyRows");
-            var rowData = xmlDoc.getElementsByTagName("PLANT");
-
-            addTableRowsFromXmlDoc(rowData, outputResult);
-        }
-
-        function addTableRowsFromXmlDoc(xmlNodes, tableNode) {
-            var theTable = tableNode.parentNode;
-            var newRow, newCell, i;
-            console.log("Number of nodes: " + xmlNodes.length);
-            for (i = 0; i < xmlNodes.length; i++) {
-                newRow = tableNode.insertRow(i);
-                newRow.className = (i % 2) ? "OddRow" : "EvenRow";
-                for (j = 0; j < xmlNodes[i].childNodes.length; j++) {
-                    newCell = newRow.insertCell(newRow.cells.length);
-                    if (xmlNodes[i].childNodes[j].firstChild) {
-                        newCell.innerHTML = xmlNodes[i].childNodes[j].firstChild.nodeValue;
-                    } else {
-                        newCell.innerHTML = "-";
+                function addTableRowsFromXmlDoc(xmlNodes, tableNode) {
+                    var theTable = tableNode.parentNode;
+                    var newRow, newCell, i;
+                    console.log("Number of nodes: " + xmlNodes.length);
+                    for (i = 0; i < xmlNodes.length; i++) {
+                        newRow = tableNode.insertRow(i);
+                        newRow.className = (i % 2) ? "OddRow" : "EvenRow";
+                        for (j = 0; j < xmlNodes[i].childNodes.length; j++) {
+                            newCell = newRow.insertCell(newRow.cells.length);
+                            if (xmlNodes[i].childNodes[j].firstChild) {
+                                newCell.innerHTML = xmlNodes[i].childNodes[j].firstChild.nodeValue;
+                            } else {
+                                newCell.innerHTML = "-";
+                            }
+                            console.log("cell: " + newCell);
+                        }
                     }
-                    console.log("cell: " + newCell);
+                    theTable.appendChild(tableNode);
                 }
-            }
-            theTable.appendChild(tableNode);
-        }
 
-        function removeWhitespace(xml) {
-            var loopIndex;
-            for (loopIndex = 0; loopIndex < xml.childNodes.length; loopIndex++) {
-                var currentNode = xml.childNodes[loopIndex];
-                if (currentNode.nodeType == 1) {
-                    removeWhitespace(currentNode);
+                function removeWhitespace(xml) {
+                    var loopIndex;
+                    for (loopIndex = 0; loopIndex < xml.childNodes.length; loopIndex++) {
+                        var currentNode = xml.childNodes[loopIndex];
+                        if (currentNode.nodeType == 1) {
+                            removeWhitespace(currentNode);
+                        }
+                        if (!(/\S/.test(currentNode.nodeValue)) && (currentNode.nodeType == 3)) {
+                            xml.removeChild(xml.childNodes[loopIndex--]);
+                        }
+                    }
                 }
-                if (!(/\S/.test(currentNode.nodeValue)) && (currentNode.nodeType == 3)) {
-                    xml.removeChild(xml.childNodes[loopIndex--]);
+
+            </script>
+            <style>
+                td {
+                    padding: 2px;
+                    border: 1px solid #dadada;
                 }
-            }
-        }
 
-    </script>
-    <style>
-        td {
-            padding: 2px;
-            border: 1px solid #dadada;
-        }
+                .EvenRow {
+                    background-color: rgb(215, 255, 210);
+                }
+            </style>
+        </head>
 
-        .EvenRow {
-            background-color: rgb(215, 255, 210);
-        }
-    </style>
-</head>
+        <!-- <body> -->
 
-<!-- <body> -->
+        <body onLoad="getRows()">
+            <!-- code from https://www.webucator.com/article/how-to-dynamically-populate-an-html-table-with-xml/ -->
+            <h1>Planty Database made with XML</h1>
+            <table id="MainTable">
+                <tbody id="BodyRows"></tbody>
+            </table>
+        </body>
 
-<body onLoad="getRows()">
-    <!-- code from https://www.webucator.com/article/how-to-dynamically-populate-an-html-table-with-xml/ -->
-    <h1>Planty Database made with XML</h1>
-    <table id="MainTable">
-        <tbody id="BodyRows"></tbody>
-    </table>
-</body>
+        </html>
+    </xsl:template>
 
-</html>
+</xsl:stylesheet>
