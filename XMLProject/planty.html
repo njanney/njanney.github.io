@@ -10,6 +10,39 @@
 
         // code from https://www.webucator.com/article/how-to-dynamically-populate-an-html-table-with-xml/
         // and https://nmarencik.github.io/xml/usingXML.html
+        function getRows() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("get", "https://raw.githubusercontent.com/nmarencik/nmarencik.github.io/main/xml/plants.xml", true);
+            xmlhttp.overrideMimeType('text/xml');
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(xmlhttp);
+                    // var xmlObject = this.responseXML;
+                    showResult(this);
+
+                    // var xmlObject = this.responseXML;
+                    // var plant_list = xmlObject.getElementsByTagName("PLANT");
+                    // for (i = 0; i < plant_list.length; i++) {
+                    //     console.log(plant_list[i].childNodes[1].childNodes[0].nodeValue);
+                    //     addPlantCard(getXMLChild(plant_list[i], 1), getXMLChild(plant_list[i], 9), getXMLChild(plant_list[i], 11));
+                    // }
+                }
+            };
+            xmlhttp.send();
+        }
+
+        function showResult(xmlhttp) {
+            var xmlDoc = xmlhttp.responseXML.documentElement;
+            removeWhitespace(xmlDoc);
+            var outputResult = document.getElementById("BodyRows");
+            var rowData = xmlDoc.getElementsByTagName("PLANT");
+
+            addTableRowsFromXmlDoc(rowData, outputResult);
+        }
+
+        function getXMLChild(xml_item, indexval) {
+            return (xml_item.childNodes[indexval].childNodes[0].nodeValue);
+        }
 
         function addPlantCard(name, price, count) {
             var card_div = document.getElementById("card-div");
@@ -25,122 +58,39 @@
             card_count = card_count % 3;
         }
 
-        function getXMLChild(xml_item, indexval) {
-            return (xml_item.childNodes[indexval].childNodes[0].nodeValue);
-        }
-
-
-        function loadXML() {
-            var XMLhttp = new XMLHttpRequest();
-            XMLhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("testBox").innerHTML = XMLhttp.responseText;
-                    console.log(XMLhttp);
-                    var xmlObject = this.responseXML;
-                    //alert(xmlObject.getElementsByTagName("PLANT").length);                    
-
-                    document.getElementById("theCount").innerHTML = xmlObject.getElementsByTagName("PLANT").length;
-
-                    var plant_list = xmlObject.getElementsByTagName("PLANT");
-                    for (i = 0; i < plant_list.length; i++) {
-                        console.log(plant_list[i].childNodes[1].childNodes[0].nodeValue);
-                        addPlantCard(getXMLChild(plant_list[i], 1), getXMLChild(plant_list[i], 9), getXMLChild(plant_list[i], 11));
+        function addTableRowsFromXmlDoc(xmlNodes, tableNode) {
+            var theTable = tableNode.parentNode;
+            var newRow, newCell, i;
+            console.log("Number of nodes: " + xmlNodes.length);
+            for (i = 0; i < xmlNodes.length; i++) {
+                addPlantCard(getXMLChild(xmlNodes[i], 1), getXMLChild(xmlNodes[i], 9), getXMLChild(xmlNodes[i], 11));
+                newRow = tableNode.insertRow(i);
+                newRow.className = (i % 2) ? "OddRow" : "EvenRow";
+                for (j = 0; j < xmlNodes[i].childNodes.length; j++) {
+                    newCell = newRow.insertCell(newRow.cells.length);
+                    if (xmlNodes[i].childNodes[j].firstChild) {
+                        newCell.innerHTML = xmlNodes[i].childNodes[j].firstChild.nodeValue;
+                    } else {
+                        newCell.innerHTML = "-";
                     }
-
-
-
-
-
+                    console.log("cell: " + newCell);
                 }
-            };
-            XMLhttp.open("GET", "https://raw.githubusercontent.com/nmarencik/nmarencik.github.io/main/xml/plants.xml", true);
-            XMLhttp.overrideMimeType('text/xml');
-            XMLhttp.send();
-
+            }
+            theTable.appendChild(tableNode);
         }
 
-
-
-        // function getRows() {
-        //     var xmlhttp = new XMLHttpRequest();
-        //     xmlhttp.open("get", "https://raw.githubusercontent.com/nmarencik/nmarencik.github.io/main/xml/plants.xml", true);
-        //     xmlhttp.overrideMimeType('text/xml');
-        //     xmlhttp.onreadystatechange = function () {
-        //         if (this.readyState == 4 && this.status == 200) {
-        //             console.log(xmlhttp);
-        //             // var xmlObject = this.responseXML;
-        //             showResult(this);
-
-        //             var xmlObject = this.responseXML;
-        //             var plant_list = xmlObject.getElementsByTagName("PLANT");
-        //             for (i = 0; i < plant_list.length; i++) {
-        //                 console.log(plant_list[i].childNodes[1].childNodes[0].nodeValue);
-        //                 addPlantCard(getXMLChild(plant_list[i], 1), getXMLChild(plant_list[i], 9), getXMLChild(plant_list[i], 11));
-        //             }
-        //         }
-        //     };
-        //     xmlhttp.send();
-        // }
-
-        // function showResult(xmlhttp) {
-        //     var xmlDoc = xmlhttp.responseXML.documentElement;
-        //     removeWhitespace(xmlDoc);
-        //     var outputResult = document.getElementById("BodyRows");
-        //     var rowData = xmlDoc.getElementsByTagName("PLANT");
-
-        //     addTableRowsFromXmlDoc(rowData, outputResult);
-        // }
-
-        // function getXMLChild(xml_item, indexval) {
-        //     return (xml_item.childNodes[indexval].childNodes[0].nodeValue);
-        // }
-
-        // function addPlantCard(name, price, count) {
-        //     var card_div = document.getElementById("card-div");
-
-        //     var card_style = "";
-        //     if (card_count < 2) {
-        //         card_style = "float: left;";
-        //     }
-
-        //     card_div.innerHTML += '<div class="card" style="width: 18rem; ' + card_style + '"><div class="card-body"><h5 class="card-title">' + name + '</h5><p class="card-text"><b>Price: </b>' + price + '<br>' + parseInt(count) + ' left in stock</p><a href="#" class="btn btn-primary">Buy now</a></div></div>';
-        //     card_count += 1;
-
-        //     card_count = card_count % 3;
-        // }
-
-        // function addTableRowsFromXmlDoc(xmlNodes, tableNode) {
-        //     var theTable = tableNode.parentNode;
-        //     var newRow, newCell, i;
-        //     console.log("Number of nodes: " + xmlNodes.length);
-        //     for (i = 0; i < xmlNodes.length; i++) {
-        //         newRow = tableNode.insertRow(i);
-        //         newRow.className = (i % 2) ? "OddRow" : "EvenRow";
-        //         for (j = 0; j < xmlNodes[i].childNodes.length; j++) {
-        //             newCell = newRow.insertCell(newRow.cells.length);
-        //             if (xmlNodes[i].childNodes[j].firstChild) {
-        //                 newCell.innerHTML = xmlNodes[i].childNodes[j].firstChild.nodeValue;
-        //             } else {
-        //                 newCell.innerHTML = "-";
-        //             }
-        //             console.log("cell: " + newCell);
-        //         }
-        //     }
-        //     theTable.appendChild(tableNode);
-        // }
-
-        // function removeWhitespace(xml) {
-        //     var loopIndex;
-        //     for (loopIndex = 0; loopIndex < xml.childNodes.length; loopIndex++) {
-        //         var currentNode = xml.childNodes[loopIndex];
-        //         if (currentNode.nodeType == 1) {
-        //             removeWhitespace(currentNode);
-        //         }
-        //         if (!(/\S/.test(currentNode.nodeValue)) && (currentNode.nodeType == 3)) {
-        //             xml.removeChild(xml.childNodes[loopIndex--]);
-        //         }
-        //     }
-        // }
+        function removeWhitespace(xml) {
+            var loopIndex;
+            for (loopIndex = 0; loopIndex < xml.childNodes.length; loopIndex++) {
+                var currentNode = xml.childNodes[loopIndex];
+                if (currentNode.nodeType == 1) {
+                    removeWhitespace(currentNode);
+                }
+                if (!(/\S/.test(currentNode.nodeValue)) && (currentNode.nodeType == 3)) {
+                    xml.removeChild(xml.childNodes[loopIndex--]);
+                }
+            }
+        }
 
     </script>
     <style>
@@ -157,7 +107,7 @@
 
 <!-- <body> -->
 
-<body onLoad="loadXML()">
+<body onLoad="getRows()">
     <!-- code from https://www.webucator.com/article/how-to-dynamically-populate-an-html-table-with-xml/ -->
     <h1>Planty Database made with XML</h1>
     <table id="MainTable">
