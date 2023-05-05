@@ -31,7 +31,7 @@
                     //     addPlantCard(getXMLChild(plant_list[i], 1), getXMLChild(plant_list[i], 9), getXMLChild(plant_list[i], 11));
                     // }
                 }
-            };
+            }
             xmlhttp.send();
         }
 
@@ -42,7 +42,7 @@
             var rowData = xmlDoc.getElementsByTagName("PLANT");
 
             // addTableRowsFromXmlDoc(rowData, outputResult);
-            function addCardsFromXmlDoc(rowData);
+            addCardsFromXmlDoc(rowData);
         }
 
         function getXMLChild(xml_item, indexval) {
