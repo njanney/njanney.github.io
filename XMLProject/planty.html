@@ -37,7 +37,7 @@
 
         function showResult(xmlhttp) {
             var xmlDoc = xmlhttp.responseXML.documentElement;
-            // removeWhitespace(xmlDoc);
+            removeWhitespace(xmlDoc);
             // var outputResult = document.getElementById("BodyRows");
             var rowData = xmlDoc.getElementsByTagName("PLANT");
 
@@ -77,18 +77,18 @@
             }
         }
 
-        // function removeWhitespace(xml) {
-        //     var loopIndex;
-        //     for (loopIndex = 0; loopIndex < xml.childNodes.length; loopIndex++) {
-        //         var currentNode = xml.childNodes[loopIndex];
-        //         if (currentNode.nodeType == 1) {
-        //             removeWhitespace(currentNode);
-        //         }
-        //         if (!(/\S/.test(currentNode.nodeValue)) && (currentNode.nodeType == 3)) {
-        //             xml.removeChild(xml.childNodes[loopIndex--]);
-        //         }
-        //     }
-        // }
+        function removeWhitespace(xml) {
+            var loopIndex;
+            for (loopIndex = 0; loopIndex < xml.childNodes.length; loopIndex++) {
+                var currentNode = xml.childNodes[loopIndex];
+                if (currentNode.nodeType == 1) {
+                    removeWhitespace(currentNode);
+                }
+                if (!(/\S/.test(currentNode.nodeValue)) && (currentNode.nodeType == 3)) {
+                    xml.removeChild(xml.childNodes[loopIndex--]);
+                }
+            }
+        }
 
     </script>
     <style>
