@@ -53,7 +53,7 @@
             var card_div = document.getElementById("card-div");
 
             var card_style = "";
-            if (card_count < 2) {
+            if (card_count < 3) {
                 card_style = "float: left;";
             }
             if (card_count % 2 == 0) {
@@ -62,14 +62,14 @@
             card_div.innerHTML += '<div class="card" style="width: 18rem; ' + card_style + '"><div class="card-body"><h5 class="card-title">' + name + '</h5><p class="card-text"><b>Price: </b>' + price + '<br>' + parseInt(count) + ' left in stock</p><a href="#" class="btn btn-primary">Buy now</a></div></div>';
             card_count += 1;
 
-            card_count = card_count % 3;
+            card_count = card_count % 4;
         }
 
         function addTableRowsFromXmlDoc(xmlNodes, tableNode) {
             var theTable = tableNode.parentNode;
             var newRow, newCell, i;
             console.log("Number of nodes: " + xmlNodes.length);
-            for (i = 0; i < xmlNodes.length; i++) {
+            for (i = 0; i < xmlNodes.length; i++) 
                 console.log("node: " + xmlNodes[i].childNodes);
                 addPlantCard(xmlNodes[i].childNodes[1].firstChild.nodeValue, xmlNodes[i].childNodes[2].firstChild.nodeValue, xmlNodes[i].childNodes[3].firstChild.nodeValue);
                 newRow = tableNode.insertRow(i);
