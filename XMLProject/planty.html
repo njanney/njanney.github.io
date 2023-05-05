@@ -20,7 +20,7 @@
                     // var xmlObject = this.responseXML;
                     showResult(this);
 
-                    var plant_list = xmlhttp.getElementsByTagName("PLANT");
+                    var plant_list = this.responseXML.getElementsByTagName("PLANT");
                     for (i = 0; i < plant_list.length; i++) {
                         console.log(plant_list[i].childNodes[1].childNodes[0].nodeValue);
                         addPlantCard(getXMLChild(plant_list[i], 1), getXMLChild(plant_list[i], 9), getXMLChild(plant_list[i], 11));
