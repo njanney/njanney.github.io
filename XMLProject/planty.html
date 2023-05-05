@@ -56,7 +56,9 @@
             if (card_count < 2) {
                 card_style = "float: left;";
             }
-
+            if (card_count % 2 == 0) {
+                card_style = "float: left; background-color: rgb(215, 255, 210);"
+            }
             card_div.innerHTML += '<div class="card" style="width: 18rem; ' + card_style + '"><div class="card-body"><h5 class="card-title">' + name + '</h5><p class="card-text"><b>Price: </b>' + price + '<br>' + parseInt(count) + ' left in stock</p><a href="#" class="btn btn-primary">Buy now</a></div></div>';
             card_count += 1;
 
