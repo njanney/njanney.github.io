@@ -31,7 +31,7 @@
             // var outputResult = document.getElementById("card-div");
             // var rowData = xmlDoc.getElementsByTagName("PLANT");
 
-            var plant_list = xmlObject.getElementsByTagName("PLANT");
+            var plant_list = xmlDoc.getElementsByTagName("PLANT");
             for (i = 0; i < plant_list.length; i++) {
                 console.log(plant_list[i].childNodes[1].childNodes[0].nodeValue);
                 addPlantCard(getXMLChild(plant_list[i], 1), getXMLChild(plant_list[i], 9), getXMLChild(plant_list[i], 11));
