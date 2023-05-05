@@ -68,7 +68,7 @@
             var newRow, newCell, i;
             console.log("Number of nodes: " + xmlNodes.length);
             for (i = 0; i < xmlNodes.length; i++) {
-                console.log("node: " + xmlNodes[i]);
+                console.log("node: " + xmlNodes[i].childNodes);
                 addPlantCard(getXMLChild(xmlNodes[i], 1), getXMLChild(xmlNodes[i], 9), getXMLChild(xmlNodes[i], 11));
                 newRow = tableNode.insertRow(i);
                 newRow.className = (i % 2) ? "OddRow" : "EvenRow";
