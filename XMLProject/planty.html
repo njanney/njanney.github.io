@@ -41,7 +41,8 @@
         }
 
         function getXMLChild(xml_item, indexval) {
-            return (xml_item.childNodes[indexval].childNodes[0].nodeValue);
+            // return (xml_item.childNodes[indexval].childNodes[0].nodeValue);
+            return (xml_item.childNodes[indexval]);
         }
 
         function addPlantCard(name, price, count) {
