@@ -21,15 +21,7 @@
             xmlhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     console.log(xmlhttp);
-                    // var xmlObject = this.responseXML;
                     showResult(this);
-
-                    // var xmlObject = this.responseXML;
-                    // var plant_list = xmlObject.getElementsByTagName("PLANT");
-                    // for (i = 0; i < plant_list.length; i++) {
-                    //     console.log(plant_list[i].childNodes[1].childNodes[0].nodeValue);
-                    //     addPlantCard(getXMLChild(plant_list[i], 1), getXMLChild(plant_list[i], 9), getXMLChild(plant_list[i], 11));
-                    // }
                 }
             }
             xmlhttp.send();
@@ -38,17 +30,13 @@
         function showResult(xmlhttp) {
             var xmlDoc = xmlhttp.responseXML.documentElement;
             removeWhitespace(xmlDoc);
-            // var outputResult = document.getElementById("BodyRows");
             var rowData = xmlDoc.getElementsByTagName("PLANT");
-
-            // addTableRowsFromXmlDoc(rowData, outputResult);
             addCardsFromXmlDoc(rowData);
         }
 
-        function getXMLChild(xml_item, indexval) {
-            // return (xml_item.childNodes[indexval].childNodes[0].nodeValue);
-            return (xml_item.childNodes[indexval]);
-        }
+        // function getXMLChild(xml_item, indexval) {
+        //     return (xml_item.childNodes[indexval]);
+        // }
 
         function addPlantCard(name, price, count) {
             var card_div = document.getElementById("card-div");
@@ -66,9 +54,7 @@
             card_count = card_count % 4;
         }
 
-        // function addTableRowsFromXmlDoc(xmlNodes, tableNode) {
         function addCardsFromXmlDoc(xmlNodes) {
-            // var theTable = tableNode.parentNode;
             var newRow, newCell, i;
             console.log("Number of nodes: " + xmlNodes.length);
             for (i = 0; i < xmlNodes.length; i++) {
