@@ -78,6 +78,7 @@
                     newCell = newRow.insertCell(newRow.cells.length);
                     if (xmlNodes[i].childNodes[j].firstChild) {
                         newCell.innerHTML = xmlNodes[i].childNodes[j].firstChild.nodeValue;
+                        console.log("Inserting: " + newCell.innerHTML);
                     } else {
                         newCell.innerHTML = "-";
                     }
