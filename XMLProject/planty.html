@@ -38,7 +38,7 @@
         //     return (xml_item.childNodes[indexval]);
         // }
 
-        function addPlantCard(name, price, count) {
+        function addPlantCard(name, species, price, count) {
             var card_div = document.getElementById("card-div");
 
             var card_style = "";
@@ -48,7 +48,7 @@
             if (card_count % 2 == 0) {
                 card_style = "float: left; background-color: rgb(215, 255, 210);"
             }
-            card_div.innerHTML += '<div class="card" style="width: 18rem; ' + card_style + '"><div class="card-body"><h5 class="card-title">' + name + '</h5><p class="card-text"><b>Price: </b>' + price + '<br>' + parseInt(count) + ' left in stock</p><a href="#" class="btn btn-primary">Buy now</a></div></div>';
+            card_div.innerHTML += '<div class="card" style="width: 18rem; ' + card_style + '"><div class="card-body"><h5 class="card-title">' + name + '</h5><p class="card-text"><b>Species: </b>' + species +'</h5><p class="card-text"><b>Price: </b>' + price + '<br>' + parseInt(count) + ' left in stock</p><a href="#" class="btn btn-primary">Buy now</a></div></div>';
             card_count += 1;
 
             card_count = card_count % 4;
@@ -59,7 +59,7 @@
             console.log("Number of nodes: " + xmlNodes.length);
             for (i = 0; i < xmlNodes.length; i++) {
                 console.log("node: " + xmlNodes[i].childNodes);
-                addPlantCard(xmlNodes[i].childNodes[0].firstChild.nodeValue, xmlNodes[i].childNodes[4].firstChild.nodeValue, xmlNodes[i].childNodes[5].firstChild.nodeValue);
+                addPlantCard(xmlNodes[i].childNodes[0].firstChild.nodeValue, xmlNodes[i].childNodes[1].firstChild.nodeValue, xmlNodes[i].childNodes[4].firstChild.nodeValue, xmlNodes[i].childNodes[5].firstChild.nodeValue);
             }
         }
 
