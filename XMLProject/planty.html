@@ -71,7 +71,7 @@
             console.log("Number of nodes: " + xmlNodes.length);
             for (i = 0; i < xmlNodes.length; i++) {
                 console.log("node: " + xmlNodes[i].childNodes);
-                addPlantCard(xmlNodes[i].childNodes[1].firstChild.nodeValue, xmlNodes[i].childNodes[2].firstChild.nodeValue, xmlNodes[i].childNodes[3].firstChild.nodeValue);
+                addPlantCard(xmlNodes[i].childNodes[1].firstChild.nodeValue, xmlNodes[i].childNodes[4].firstChild.nodeValue, xmlNodes[i].childNodes[3].firstChild.nodeValue);
                 newRow = tableNode.insertRow(i);
                 newRow.className = (i % 2) ? "OddRow" : "EvenRow";
                 for (j = 0; j < xmlNodes[i].childNodes.length; j++) {
