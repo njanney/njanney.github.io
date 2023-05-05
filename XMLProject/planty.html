@@ -37,11 +37,12 @@
 
         function showResult(xmlhttp) {
             var xmlDoc = xmlhttp.responseXML.documentElement;
-            removeWhitespace(xmlDoc);
-            var outputResult = document.getElementById("BodyRows");
+            // removeWhitespace(xmlDoc);
+            // var outputResult = document.getElementById("BodyRows");
             var rowData = xmlDoc.getElementsByTagName("PLANT");
 
-            addTableRowsFromXmlDoc(rowData, outputResult);
+            // addTableRowsFromXmlDoc(rowData, outputResult);
+            function addCardsFromXmlDoc(rowData);
         }
 
         function getXMLChild(xml_item, indexval) {
@@ -65,42 +66,29 @@
             card_count = card_count % 4;
         }
 
-        function addTableRowsFromXmlDoc(xmlNodes, tableNode) {
-            var theTable = tableNode.parentNode;
+        // function addTableRowsFromXmlDoc(xmlNodes, tableNode) {
+        function addCardsFromXmlDoc(xmlNodes) {
+            // var theTable = tableNode.parentNode;
             var newRow, newCell, i;
             console.log("Number of nodes: " + xmlNodes.length);
             for (i = 0; i < xmlNodes.length; i++) {
                 console.log("node: " + xmlNodes[i].childNodes);
                 addPlantCard(xmlNodes[i].childNodes[0].firstChild.nodeValue, xmlNodes[i].childNodes[4].firstChild.nodeValue, xmlNodes[i].childNodes[5].firstChild.nodeValue);
-                // newRow = tableNode.insertRow(i);
-                // newRow.className = (i % 2) ? "OddRow" : "EvenRow";
-                // for (j = 0; j < xmlNodes[i].childNodes.length; j++) {
-                //     newCell = newRow.insertCell(newRow.cells.length);
-                //     if (xmlNodes[i].childNodes[j].firstChild) {
-                //         newCell.innerHTML = xmlNodes[i].childNodes[j].firstChild.nodeValue;
-                //         console.log("Inserting: " + newCell.innerHTML);
-                //     } else {
-                //         newCell.innerHTML = "-";
-                //         console.log("skipping:");
-                //     }
-                //     console.log("cell: " + newCell);
-                // }
             }
-            // theTable.appendChild(tableNode);
         }
 
-        function removeWhitespace(xml) {
-            var loopIndex;
-            for (loopIndex = 0; loopIndex < xml.childNodes.length; loopIndex++) {
-                var currentNode = xml.childNodes[loopIndex];
-                if (currentNode.nodeType == 1) {
-                    removeWhitespace(currentNode);
-                }
-                if (!(/\S/.test(currentNode.nodeValue)) && (currentNode.nodeType == 3)) {
-                    xml.removeChild(xml.childNodes[loopIndex--]);
-                }
-            }
-        }
+        // function removeWhitespace(xml) {
+        //     var loopIndex;
+        //     for (loopIndex = 0; loopIndex < xml.childNodes.length; loopIndex++) {
+        //         var currentNode = xml.childNodes[loopIndex];
+        //         if (currentNode.nodeType == 1) {
+        //             removeWhitespace(currentNode);
+        //         }
+        //         if (!(/\S/.test(currentNode.nodeValue)) && (currentNode.nodeType == 3)) {
+        //             xml.removeChild(xml.childNodes[loopIndex--]);
+        //         }
+        //     }
+        // }
 
     </script>
     <style>
