@@ -19,6 +19,12 @@
                     console.log(xmlhttp);
                     // var xmlObject = this.responseXML;
                     showResult(this);
+
+                    var plant_list = xmlhttp.getElementsByTagName("PLANT");
+                    for (i = 0; i < plant_list.length; i++) {
+                        console.log(plant_list[i].childNodes[1].childNodes[0].nodeValue);
+                        addPlantCard(getXMLChild(plant_list[i], 1), getXMLChild(plant_list[i], 9), getXMLChild(plant_list[i], 11));
+                    }
                 }
             };
             xmlhttp.send();
@@ -28,14 +34,7 @@
             var xmlDoc = xmlhttp.responseXML.documentElement;
             removeWhitespace(xmlDoc);
             var outputResult = document.getElementById("BodyRows");
-            // var outputResult = document.getElementById("card-div");
             var rowData = xmlDoc.getElementsByTagName("PLANT");
-
-            var plant_list = xmlhttp.getElementsByTagName("PLANT");
-            for (i = 0; i < plant_list.length; i++) {
-                console.log(plant_list[i].childNodes[1].childNodes[0].nodeValue);
-                addPlantCard(getXMLChild(plant_list[i], 1), getXMLChild(plant_list[i], 9), getXMLChild(plant_list[i], 11));
-            }
 
             addTableRowsFromXmlDoc(rowData, outputResult);
         }
