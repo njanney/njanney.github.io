@@ -72,21 +72,21 @@
             for (i = 0; i < xmlNodes.length; i++) {
                 console.log("node: " + xmlNodes[i].childNodes);
                 addPlantCard(xmlNodes[i].childNodes[0].firstChild.nodeValue, xmlNodes[i].childNodes[4].firstChild.nodeValue, xmlNodes[i].childNodes[5].firstChild.nodeValue);
-                newRow = tableNode.insertRow(i);
-                newRow.className = (i % 2) ? "OddRow" : "EvenRow";
-                for (j = 0; j < xmlNodes[i].childNodes.length; j++) {
-                    newCell = newRow.insertCell(newRow.cells.length);
-                    if (xmlNodes[i].childNodes[j].firstChild) {
-                        newCell.innerHTML = xmlNodes[i].childNodes[j].firstChild.nodeValue;
-                        console.log("Inserting: " + newCell.innerHTML);
-                    } else {
-                        newCell.innerHTML = "-";
-                        console.log("skipping:");
-                    }
-                    console.log("cell: " + newCell);
-                }
+                // newRow = tableNode.insertRow(i);
+                // newRow.className = (i % 2) ? "OddRow" : "EvenRow";
+                // for (j = 0; j < xmlNodes[i].childNodes.length; j++) {
+                //     newCell = newRow.insertCell(newRow.cells.length);
+                //     if (xmlNodes[i].childNodes[j].firstChild) {
+                //         newCell.innerHTML = xmlNodes[i].childNodes[j].firstChild.nodeValue;
+                //         console.log("Inserting: " + newCell.innerHTML);
+                //     } else {
+                //         newCell.innerHTML = "-";
+                //         console.log("skipping:");
+                //     }
+                //     console.log("cell: " + newCell);
+                // }
             }
-            theTable.appendChild(tableNode);
+            // theTable.appendChild(tableNode);
         }
 
         function removeWhitespace(xml) {
