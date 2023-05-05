@@ -6,7 +6,10 @@
     <title>working with xml</title>
     <script>
 
+        let card_count = 0;
+
         // code from https://www.webucator.com/article/how-to-dynamically-populate-an-html-table-with-xml/
+        // and https://nmarencik.github.io/xml/usingXML.html
         function getRows() {
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.open("get", "https://raw.githubusercontent.com/nmarencik/nmarencik.github.io/main/xml/plants.xml", true);
@@ -25,9 +28,34 @@
             var xmlDoc = xmlhttp.responseXML.documentElement;
             removeWhitespace(xmlDoc);
             var outputResult = document.getElementById("BodyRows");
-            var rowData = xmlDoc.getElementsByTagName("PLANT");
+            // var outputResult = document.getElementById("card-div");
+            // var rowData = xmlDoc.getElementsByTagName("PLANT");
 
-            addTableRowsFromXmlDoc(rowData, outputResult);
+            var plant_list = xmlObject.getElementsByTagName("PLANT");
+            for (i = 0; i < plant_list.length; i++) {
+                console.log(plant_list[i].childNodes[1].childNodes[0].nodeValue);
+                addPlantCard(getXMLChild(plant_list[i], 1), getXMLChild(plant_list[i], 9), getXMLChild(plant_list[i], 11));
+            }
+
+            addTableRowsFromXmlDoc(plant_list, outputResult);
+        }
+
+        function getXMLChild(xml_item, indexval) {
+            return (xml_item.childNodes[indexval].childNodes[0].nodeValue);
+        }
+
+        function addPlantCard(name, price, count) {
+            var card_div = document.getElementById("card-div");
+
+            var card_style = "";
+            if (card_count < 2) {
+                card_style = "float: left;";
+            }
+
+            card_div.innerHTML += '<div class="card" style="width: 18rem; ' + card_style + '"><div class="card-body"><h5 class="card-title">' + name + '</h5><p class="card-text"><b>Price: </b>' + price + '<br>' + parseInt(count) + ' left in stock</p><a href="#" class="btn btn-primary">Buy now</a></div></div>';
+            card_count += 1;
+
+            card_count = card_count % 3;
         }
 
         function addTableRowsFromXmlDoc(xmlNodes, tableNode) {
@@ -84,6 +112,18 @@
     <table id="MainTable">
         <tbody id="BodyRows"></tbody>
     </table>
+
+    <!-- sample code taken right from bootstrap site -->
+    <div class="card" style="width: 18rem;" hidden>
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+    <div id="card-div">
+    </div> <!--card-div-->
 </body>
 
 </html>
