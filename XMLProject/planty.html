@@ -14,6 +14,7 @@
 
         // code from https://www.webucator.com/article/how-to-dynamically-populate-an-html-table-with-xml/
         // and https://nmarencik.github.io/xml/usingXML.html
+
         function getRows() {
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.open("get", "https://raw.githubusercontent.com/nmarencik/nmarencik.github.io/main/xml/plants.xml", true);
@@ -33,10 +34,6 @@
             var rowData = xmlDoc.getElementsByTagName("PLANT");
             addCardsFromXmlDoc(rowData);
         }
-
-        // function getXMLChild(xml_item, indexval) {
-        //     return (xml_item.childNodes[indexval]);
-        // }
 
         function addPlantCard(name, species, price, count) {
             var card_div = document.getElementById("card-div");
@@ -83,8 +80,8 @@
             border: 1px solid #dadada;
         }
 
-        .EvenRow {
-            background-color: rgb(215, 255, 210);
+        body {
+            background-color: rgb(216, 216, 196);
         }
     </style>
 </head>
